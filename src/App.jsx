@@ -24,6 +24,9 @@ function App() {
 
   const [data, setData] = useState({}); //Deseo actual
   const [list, setList] = useState(initialData); //[{}]lista deseos
+  
+  const [input, setInput ] = useState('')
+  const [mostrarBoton, setMostrarBoton] = useState(false);
 
 
   const deleteItem = (i) =>{
@@ -51,9 +54,16 @@ function App() {
       />
     )); //se le pasa un index para pintar?
   };
+
+  const inputOnchangeHandler = event => {
+    const newInput = event.target.value
+    setInput(newInput);
+    setMostrarBoton(newInput.trim() !== '');
   
+  }
+
   const handleSubmit = (e) =>{
-    
+    e.preventDefault();
     const title = e.target.title.value
     
     const myItems = {title};
@@ -65,7 +75,8 @@ function App() {
       setList([...list, myItems]); // [{}, {}] lista deseos
       alert("Tarea añadida");
     }
-  
+    setInput('');
+    setMostrarBoton(false);
   };
 
 
@@ -79,9 +90,9 @@ function App() {
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Nombre</label><br />
-        <input type="text" name="title" /><br />
+        <input type="text" value={input} name="title"  placeholder="¿Algo que hacer?" onChange={inputOnchangeHandler}/><br />
 
-        <button type="submit">ADD</button>
+        {mostrarBoton && <button type="submit">ADD</button>}
       </form>
 
       <section>{paintItems()}</section>
