@@ -81,7 +81,7 @@ function App() {
         <label htmlFor="title">Nombre</label><br />
         <input type="text" name="title" /><br />
 
-        <button type="submit">Crear tarea</button>
+        <button type="submit">ADD</button>
       </form>
 
       <section>{paintItems()}</section>
