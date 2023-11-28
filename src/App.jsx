@@ -83,13 +83,13 @@ function App() {
   return (
     <>
       
-      <h1>To do List</h1>
+      <h1><u>To do List</u></h1>
 
       <button onClick={clearItems}>Limpiar</button>
       <button onClick={resetItems}>Recargar</button>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Nombre</label><br />
+        <br />
         <input type="text" value={input} name="title"  placeholder="¿Algo que hacer?" onChange={inputOnchangeHandler}/><br />
 
         {mostrarBoton && <button type="submit">ADD</button>}
