@@ -84,6 +84,7 @@ function App() {
     <>
       
       <h1><u>To do List</u></h1>
+      
 
       <button onClick={clearItems}>Limpiar</button>
       <button onClick={resetItems}>Recargar</button>
@@ -94,7 +95,8 @@ function App() {
 
         {mostrarBoton && <button type="submit">ADD</button>}
       </form>
-
+      <br />
+      <h4>Hoy tengo que:</h4>
       <section>{paintItems()}</section>
       
     </>
